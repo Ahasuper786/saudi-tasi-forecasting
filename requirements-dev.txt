@@ -1,0 +1,3 @@
+-r requirements.txt
+pytest>=8.0,<10
+nbconvert>=7.0,<8
