@@ -23,7 +23,7 @@ The project uses chronological validation, release-aware feature alignment, simp
 
 **Result:** XGBoost achieved the lowest fixed-test MAE (**3.049**), while Random Forest achieved the lowest fixed-test RMSE (**4.044**) and highest regression directional accuracy (**63.33%**). In the longer walk-forward evaluation, the Historical-Mean benchmark had the lowest MAE (**3.879**) and the Zero-Return benchmark had the lowest RMSE (**4.751**).
 
-**What this demonstrates:** time-series validation, leakage-aware feature engineering, benchmark discipline, model comparison, reproducible analysis and cautious interpretation of ML results.
+**What this demonstrates:** time-series validation, leakage-aware feature engineering, benchmark discipline, model comparison, reproducible result checks and cautious interpretation of ML results.
 
 ---
 
@@ -64,7 +64,7 @@ The longer sequential evaluation changes the interpretation: **the recent machin
 - **Nested information sets:** tests whether commodities, macro variables and trade data actually improve forecasts.
 - **Two forecasting tasks:** return magnitude and positive/non-positive direction.
 - **Walk-forward robustness:** 76 sequential forecasts test whether a result survives changing market conditions.
-- **Reproducibility checks:** the code asserts sample size, date ranges and headline metrics.
+- **Reproducibility checks:** verified result tables are covered by automated tests.
 - **Transparent limitations:** missing source metadata is documented rather than guessed.
 
 ---
@@ -92,7 +92,7 @@ flowchart LR
     G --> H
 ```
 
-See [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md) for the feature definitions.
+See [`docs/DATA_DICTIONARY.md`](docs/DATA_DICTIONARY.md) and [`data/README.md`](data/README.md) for feature definitions and public-data availability.
 
 ---
 
@@ -127,8 +127,7 @@ saudi-tasi-forecasting/
 ├── PROJECT_SUMMARY.md
 ├── requirements.txt
 ├── data/
-│   ├── README.md
-│   └── final/
+│   └── README.md
 ├── src/
 │   └── run_analysis.py
 ├── results/
@@ -138,7 +137,9 @@ saudi-tasi-forecasting/
 └── .github/workflows/tests.yml
 ```
 
-## Reproduce the analysis
+## Run locally
+
+Clone and install the environment:
 
 ```bash
 git clone https://github.com/Ahasuper786/saudi-tasi-forecasting.git
@@ -147,17 +148,24 @@ python -m venv .venv
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+The public repository intentionally does **not** redistribute the archived raw market/economic files or final modelling CSV because the archived TASI source-provider metadata and redistribution rights could not be independently verified. To rerun the full modelling pipeline, place the final release-aware table at:
+
+`data/final/Saudi_TASI_Release_Aware_Model_Data.csv`
+
+Then run:
+
+```bash
 python src/run_analysis.py
 ```
 
-Run the checks with:
+The published result tables can be checked without the private data archive:
 
 ```bash
 pip install -r requirements-dev.txt
 pytest -q
 ```
-
-The public repository contains the final release-aware modelling table needed by the analysis. Raw source archives are intentionally not published here because the archived TASI file does not preserve verifiable provider metadata and redistribution rights were not established.
 
 ---
 
