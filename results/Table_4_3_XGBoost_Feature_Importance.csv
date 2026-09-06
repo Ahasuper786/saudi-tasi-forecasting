@@ -1,0 +1,17 @@
+Rank,Feature,Importance
+1,Repo_Rate_Available,0.13097693
+2,Oil_Exports_Available,0.07900927
+3,Imports_Available,0.0774037
+4,Gold_Available,0.07422884
+5,Inflation_Available,0.06858039
+6,Policy_Rate_Available,0.065554895
+7,Total_Exports_Available,0.06531088
+8,TASI_Lag_6,0.061082527
+9,TASI_Lag_3,0.060350206
+10,Non_Oil_Exports_Available,0.057452552
+11,TASI_Rolling_3M,0.05309905
+12,TASI_Rolling_6M,0.049124893
+13,Trade_Balance_Available,0.045121398
+14,TASI_Lag_1,0.040593795
+15,TASI_Lag_12,0.038573578
+16,Brent_Available,0.03353715

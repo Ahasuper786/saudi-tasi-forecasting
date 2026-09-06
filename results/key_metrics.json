@@ -1,0 +1,21 @@
+{
+  "sample": {
+    "model_observations": 136,
+    "start": "2015-03-31",
+    "end": "2026-06-30",
+    "train_observations": 106,
+    "test_observations": 30,
+    "walk_forward_forecasts": 76
+  },
+  "fixed_test": {
+    "xgboost_mae": 3.048709,
+    "random_forest_rmse": 4.044166,
+    "random_forest_directional_accuracy": 0.633333
+  },
+  "walk_forward": {
+    "historical_mean_mae": 3.879051,
+    "zero_return_rmse": 4.750962,
+    "random_forest_rmse": 4.950911,
+    "xgboost_rmse": 5.287203
+  }
+}
